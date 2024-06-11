@@ -1,5 +1,55 @@
-ul{
-  display: flex;
-  justify-content: space-between;
-  list-style: none;
+/* svoya */
+* {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+table {
+  background-color: rgb(2, 30, 31);
+  color: aliceblue;
+}
+caption {
+  color: rgb(2, 30, 31);
+}
+th {
+  border: 1px solid white;
+  padding: 30px;
+}
+td {
+  border: 1px solid white;
+}
+
+/* zadaca 2*/
+#vipolneno {
+  text-decoration: line-through;
+  color: green;
+}
+#nevipolneno {
+  color: red;
+}
+
+/* zadaca 4 */
+#card {
+  max-width: 300px;
+  background-color: rgb(248, 245, 252);
+  color: rgb(8, 41, 70);
+  text-align: center;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 15px -7px rgb(8, 41, 70);
+}
+#card img {
+  width: 100%;
+  border-radius: 10px 10px 0px 0px;
+}
+
+/* zadaca 5 */
+
+#selector {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin-right: 40px;
+}
+#colorDiv {
+  width: 30px;
+  height: 30px;
 }
