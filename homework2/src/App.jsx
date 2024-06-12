@@ -1,104 +1,90 @@
-// import React from "react";
-// import UserProfile from "./components/UserProfile";
+import React, { Component } from "react";
+import Feedback from "./components/Feedback";
+import Statistics from "./components/Statistics";
+import FeedbackOptions from "./components/FeedbackOptions";
+import Section from "./components/Section";
+import Notification from "./components/Notification";
 
-// const users = [
-//   { id: "id-1", name: "John Doe", age: 30, location: "New York" },
-//   { id: "id-2", name: "Leo Doe", age: 80, location: "Baku" },
-//   { id: "id-3", name: "Lali Doe", age: 23, location: "France" },
-// ];
+class App extends Component {
+  state = {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+    total: 0,
+    positive: 0,
+  };
 
-// const App = () => {
-//   return (
-//     <>
-//       {/* Задача 1: Компонент профиля пользователя */}
-//       <table>
-//         <caption>UserProfile</caption>
-//         <thead>
-//           <tr>
-//             <th>Имя</th>
-//             <th>Возраст</th>
-//             <th>Местоположение</th>
-//           </tr>
-//         </thead>
-//         <tbody>
-//           {/* 1 sposob odnoqo cel dobavit */}
-//           {/* <UserProfile name="John Doe" age={30} location="New York" />2 sposob */}
-//           {/* 2 sposob vsex dobavit */}
-//           {/* {users.map((user) => {
-//             <UserProfile
-//               // id={user.id}
-//               name={user.name}
-//               age={user.age}
-//               location={user.location}
-//             />;
-//           })} */}
-//           {/* 3iy sposob vsex dobavit */}
-//           <UserProfile user={users} />
-//         </tbody>
-//       </table>
-//     </>
-//   );
-// };
+  goodvalue = () => {
+    this.setState({ good: this.state.good + 1 });
+  };
 
-// export default App;
+  neutralvalue = () => {
+    this.setState({ neutral: this.state.neutral + 1 });
+  };
 
-/*Задача */
-import React from "react";
-import UserProfile from "./components/UserProfile";
-import TodoList from "./components/TodoList";
-import Adder from "./components/Adder";
-import ProductCard from "./components/ProductCard";
-import ColorSelector from "./components/ColorSelector";
+  badvalue = () => {
+    this.setState({ bad: this.state.bad + 1 });
+  };
+  countTotalFeedback = () => {
+    this.setState({
+      total: this.state.good + this.state.neutral + this.state.bad + 1,
+    });
+  };
 
-const tasks = [
-  { id: "id-1", text: "Buy groceries", completed: false },
-  { id: "id-2", text: "Walk the dog", completed: true },
-];
+  countPositiveFeedbackPercentage = () => {
+    const positiveFeedback =
+      this.state.good === 0
+        ? 0
+        : Math.round(((this.state.good + 1) / (this.state.total +1)) * 100);
 
-const colors = ["red", "green", "blue"];
+    this.setState({ positive: positiveFeedback });
+  };
 
-const App = () => {
-  return (
-    <>
-      {/* zadaca 1 */}
-      <div>
-        <UserProfile name="John Doe" age={30} location="New York" />
-      </div>
+  goodClick = () => {
+    this.goodvalue();
+    this.countTotalFeedback();
+    this.countPositiveFeedbackPercentage();
+  };
+  neutralClick = () => {
+    this.neutralvalue();
+    this.countTotalFeedback();
+    this.countPositiveFeedbackPercentage();
+  };
+  badClick = () => {
+    this.badvalue();
+    this.countTotalFeedback();
+    this.countPositiveFeedbackPercentage();
+  };
 
-      {/* zadaca 2 */}
-      <div>
-        <h1>TodoList</h1>
-        <ul>
-          <TodoList tasks={tasks} />
-        </ul>
-      </div>
-
-      {/* zadaca 3 */}
-      <div>
-        <Adder num1={5} num2={10} />
-      </div>
-
-      {/* zadaca 4 */}
-      <div>
-        <h1>ProductCard</h1>
-        <div id="card">
-          <ProductCard
-            title="Laptop"
-            price={999.99}
-            description="A high-performance laptop"
-            imageUrl="https://media.wired.com/photos/64daad6b4a854832b16fd3bc/191:100/w_1280,c_limit/How-to-Choose-a-Laptop-August-2023-Gear.jpg"
+  render() {
+    const options = ["good", "neutral", "bad"];
+    return (
+      <>
+        <Section title="Please leave feedback">
+          <FeedbackOptions
+            goodClick={this.goodClick}
+            neutralClick={this.neutralClick}
+            badClick={this.badClick}
+            // options={options}
+            // onLeaveFeedback={this.handleLeaveFeedback}
           />
-        </div>
-      </div>
-
-      {/* zadaca 5 */}
-      <div>
-        <h1>Селектор цвета</h1>
-        <ColorSelector colors={colors} />
-        
-      </div>
-    </>
-  );
-};
+        </Section>
+        <Section title="Statistics">
+          {this.state.total === 0 ? (
+            <Notification message="There is no feedback" />
+          ) : (
+            <Statistics
+              good={this.state.good}
+              neutral={this.state.neutral}
+              bad={this.state.bad}
+              total={this.state.total}
+              positive={this.state.positive}
+            />
+          )}
+        </Section>
+      </>
+    );
+  }
+}
 
 export default App;
