@@ -8,16 +8,16 @@ import "./index.css";
 function App() {
   return (
     <>
-    < Header />
+
       {/* <Header title="hello" /> */}
-      <Authentication />
-      {/* <Counter /> */}
-      <Card>
+      {/* <Authentication /> */}
+      <Counter />
+      {/* <Card>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus,
         adipisci. Qui atque modi accusantium animi voluptates ullam quis
         explicabo dolorum.
-      </Card>
-      {/* <Card>
+      </Card> */}
+      <Card>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus,
         adipisci. Qui atque modi accusantium animi voluptates ullam quis
         explicabo dolorum.
@@ -26,7 +26,7 @@ function App() {
       <Card>
         <h2>Card Title</h2>
         <p>Lorem ipsum dolor sit amet.</p>
-      </Card> */}
+      </Card>
       {/* <div
         onScroll={(e) => {
           console.log("e :>> ", e);

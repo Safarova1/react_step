@@ -4,11 +4,11 @@ import Card from "./Card";
 class Counter extends React.Component {
   state = {
     value: 0,
-    isCalculated: false,
+    toggle: false,
   };
 
-  toggleCalculated = () => {
-    this.setState({ isCalculated: !this.state.isCalculated });
+  toggletruefalse = () => {
+    this.setState({ toggle: !this.state.toggle });
   };
 
   increment = () => {
@@ -31,8 +31,8 @@ class Counter extends React.Component {
         </h2>
         <button onClick={this.decrement}>-</button>
         <button onClick={this.increment}>+</button>
-        <button onClick={this.toggleCalculated}>Переекючатель</button>
-        {this.state.isCalculated ? <p>open</p> : <p>Close</p>}
+        <button onClick={this.toggletruefalse}>Переключатель</button>
+        {this.state.toggle ? <p>Open</p> : <p>Close</p>}
       </Card>
     );
   }
