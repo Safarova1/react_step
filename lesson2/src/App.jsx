@@ -8,6 +8,7 @@ import "./index.css";
 function App() {
   return (
     <>
+    < Header />
       {/* <Header title="hello" /> */}
       <Authentication />
       {/* <Counter /> */}
