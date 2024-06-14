@@ -29,20 +29,28 @@ class ContactBook extends Component {
     });
   };
 
+  delContact = (id) => {
+    this.setState({
+      contacts: [...this.state.contacts.filter((contact) => contact.id !== id)],
+    });
+  };
+
   componentDidMount = () => {
     console.log("Did Mount");
   };
 
   componentDidUpdate = () => {
-    console.log("updated");
+    console.log("update");
   };
-
   render() {
     return (
       <>
         <h1>Contact Book</h1>
         <ContactForm addNewContact={this.addNewContact} />
-        <ContactList contacts={this.state.contacts} />
+        <ContactList
+          contacts={this.state.contacts}
+          delContact={this.delContact}
+        />
       </>
     );
   }

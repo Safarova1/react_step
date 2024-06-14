@@ -1,14 +1,16 @@
-import ContactBook from "./components/ContactBook";
-import Users from "./components/Users";
+import React from "react";
+import ContactBook from "./component/ContactBook";
+import Users from "./component/Users";
+
 import "./index.css";
 
-function App() {
+const App = () => {
   return (
     <>
+      {/* <ContactBook /> */}
       <Users />
-      <ContactBook />
     </>
   );
-}
+};
 
 export default App;

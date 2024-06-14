@@ -6,8 +6,9 @@ const ContactList = (props) => {
       {props.contacts.map((contact) => {
         return (
           <li key={contact.id}>
-            <p>{contact.name}</p>
+            <p>{contact.name} </p>
             <p>{contact.number}</p>
+            <button onClick={() => props.delContact(contact.id)}>delete</button>
           </li>
         );
       })}

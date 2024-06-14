@@ -1,17 +1,17 @@
 import { Component } from "react";
-
+ 
 class ContactForm extends Component {
   state = {
     name: "",
     number: "",
   };
-
+ 
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
   handleSubmit = (event) => {
     event.preventDefault();
-
+ 
     const name = event.target.elements.name.value;
     const number = event.target.elements.number.value;
     const newContact = {
@@ -19,7 +19,7 @@ class ContactForm extends Component {
       name: name,
       number: number,
     };
-
+    console.log("this.props :>> ", this.props);
     this.props.addNewContact(newContact);
     this.setState({
       name: "",
@@ -48,5 +48,5 @@ class ContactForm extends Component {
     );
   }
 }
-
+ 
 export default ContactForm;
