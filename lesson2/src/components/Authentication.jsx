@@ -4,7 +4,7 @@ import SignupForm from "./SignupForm";
 
 class Authentication extends Component {
   state = {
-    isRegister: true,
+    isRegister: false,
     username: "",
     password: "",
     repeatPassword: "",
