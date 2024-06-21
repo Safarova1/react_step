@@ -14,3 +14,17 @@ const Booklist = ({ book }) => {
 };
 
 export default Booklist;
+
+// zadaca sama rewila
+// import React from "react";
+
+// const Booklist = (props) => {
+//   return (
+//     <>
+//       <h2>{props.name}</h2>
+//       <p>{props.price}</p>
+//     </>
+//   );
+// };
+
+// export default Booklist;
