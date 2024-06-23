@@ -18,12 +18,13 @@ export default class ContactForm extends Component {
     const number = event.target.elements.number.value;
     // vse dopisali v newcontact
     const newcontact = {
-      id: Date.now(),
       name: name,
       number: number,
+      id: Date.now(),
     };
 
     this.props.addnewcontact(newcontact);
+
     // ociwayem input
     this.setState({ name: "", number: "" });
   };

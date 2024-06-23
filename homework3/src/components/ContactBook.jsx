@@ -30,14 +30,29 @@ export default class ContactBook extends Component {
 
   addnewcontact = (newcontact) => {
     this.setState({ contacts: [...this.state.contacts, newcontact] });
+    localStorage.setItem("contacts", JSON.stringify(this.state.contacts));
   };
 
   delcontact = (id) => {
     this.setState({
       contacts: [...this.state.contacts.filter((contact) => contact.id !== id)],
     });
+    localStorage.setItem("contacts", JSON.stringify(this.state.contacts));
   };
 
+  componentDidMount() {
+    const savecontacts = JSON.parse(localStorage.getItem("contacts"));
+    if (savecontacts) {
+      this.setState({ contacts: savecontacts });
+    }
+  }
+
+  // proveryayem soxranenniy s sled ravni ili net pri obnovlenii
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.contacts !== this.state.contacts) {
+      localStorage.setItem("contacts", JSON.stringify(this.state.contacts));
+    }
+  }
   render() {
     return (
       <>

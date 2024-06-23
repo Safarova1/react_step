@@ -2,7 +2,7 @@ import React from "react";
 
 const Booklist = (props) => {
   return (
-    <ul>
+    <ol>
       {props.contacts.map((contact) => {
         return (
           <li key={contact.id}>
@@ -12,7 +12,7 @@ const Booklist = (props) => {
           </li>
         );
       })}
-    </ul>
+    </ol>
   );
 };
 
