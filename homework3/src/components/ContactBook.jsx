@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Booklist from "./Booklist";
+import ContactList from "./ContactList";
 import ContactForm from "./ContactForm";
 
 export default class ContactBook extends Component {
@@ -60,7 +60,10 @@ export default class ContactBook extends Component {
         <h1> Contact form</h1>
         <ContactForm addnewcontact={this.addnewcontact} />
         <h1>contact book</h1>
-        <Booklist contacts={this.state.contacts} delcontact={this.delcontact} />
+        <ContactList
+          contacts={this.state.contacts}
+          delcontact={this.delcontact}
+        />
       </>
     );
   }

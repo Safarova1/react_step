@@ -1,6 +1,6 @@
 import React from "react";
 
-const Booklist = (props) => {
+const ContactList = (props) => {
   return (
     <ol>
       {props.contacts.map((contact) => {
@@ -16,4 +16,4 @@ const Booklist = (props) => {
   );
 };
 
-export default Booklist;
+export default ContactList;
