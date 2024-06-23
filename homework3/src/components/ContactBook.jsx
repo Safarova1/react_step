@@ -59,7 +59,7 @@ export default class ContactBook extends Component {
       <>
         <h1> Contact form</h1>
         <ContactForm addnewcontact={this.addnewcontact} />
-        <h1>contact book</h1>
+        <h1>Contact book</h1>
         <ContactList
           contacts={this.state.contacts}
           delcontact={this.delcontact}

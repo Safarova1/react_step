@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import StyleForm from "./StyleForm";
 
 export default class ContactForm extends Component {
   state = {
@@ -31,23 +32,25 @@ export default class ContactForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSumbit}>
-        <label htmlFor="name">Name </label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          value={this.state.name}
-          onChange={this.handleChange}
-        />
-        <label htmlFor="number">Number </label>
-        <input
-          id="number"
-          name="number"
-          type="text"
-          value={this.state.number}
-          onChange={this.handleChange}
-        />
-        <button type="submit">Add new contact</button>
+        <StyleForm>
+          <label htmlFor="name">Name </label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            value={this.state.name}
+            onChange={this.handleChange}
+          />
+          <label htmlFor="number">Number </label>
+          <input
+            id="number"
+            name="number"
+            type="text"
+            value={this.state.number}
+            onChange={this.handleChange}
+          />
+          <button type="submit">Add new contact</button>
+        </StyleForm>
       </form>
     );
   }

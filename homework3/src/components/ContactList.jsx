@@ -5,9 +5,11 @@ const ContactList = (props) => {
     <ol>
       {props.contacts.map((contact) => {
         return (
-          <li key={contact.id}>
-            <p>Name: {contact.name}</p>
-            <p>Number: {contact.number}</p>
+          <li id="listItem" key={contact.id}>
+            <p>
+              Name: {contact.name} <br />
+              Number: {contact.number}
+            </p>
             <button onClick={() => props.delcontact(contact.id)}>Delete</button>
           </li>
         );

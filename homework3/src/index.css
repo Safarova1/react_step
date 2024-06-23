@@ -2,22 +2,45 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
+  margin: 50px;
   color-scheme: light dark;
   color: rgba(248, 222, 145, 0.87);
   background-color: #a30d0d;
-
+  font-size: 20px;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.card {
-  background-color: pink;
-  color: #535bf2;
+.form {
+  display: flex;
+  flex-direction: column;
+
+  background-color: rgba(248, 222, 145, 0.87);
+  color: #a30d0d;
+  font-weight: 700;
   margin: 30px;
-  padding: 100px;
+  padding: 50px;
   font-size: 20px;
+}
+button {
+  margin-top: 20px;
+  color: rgba(248, 222, 145, 0.87);
+}
+input {
+  font-size: 20px;
+
+  border-radius: 5px;
+  padding: 10px;
+  color: rgba(248, 222, 145, 0.87);
+}
+#listItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+h1 {
+  margin: auto;
 }
 a {
   font-weight: 500;
