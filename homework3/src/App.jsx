@@ -1,15 +1,10 @@
 import React from "react";
-import Header from "./components/Header";
-import Product from "./components/Product";
-import Card from "./components/Card";
+import ContactBook from "./components/ContactBook";
+
 const App = () => {
   return (
     <>
-      <Header />
-
-      <Card>
-        <Product />
-      </Card>
+      <ContactBook />
     </>
   );
 };
