@@ -40,6 +40,7 @@ export default class ContactBook extends Component {
     localStorage.setItem("contacts", JSON.stringify(this.state.contacts));
   };
 
+  // soxranyayem v sostoyanii
   componentDidMount() {
     const savecontacts = JSON.parse(localStorage.getItem("contacts"));
     if (savecontacts) {
@@ -47,7 +48,7 @@ export default class ContactBook extends Component {
     }
   }
 
-  // proveryayem soxranenniy s sled ravni ili net pri obnovlenii
+  // proveryayem prediduyuwee s seycasnim sostoyaniem ravni ili net pri obnovlenii
   componentDidUpdate(prevProps, prevState) {
     if (prevState.contacts !== this.state.contacts) {
       localStorage.setItem("contacts", JSON.stringify(this.state.contacts));
