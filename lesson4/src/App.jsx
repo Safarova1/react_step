@@ -1,43 +1,46 @@
 import React, { Component } from "react";
-// import ContactForm from "./component/ContactForm";
-import Users from "./component/TodoList";
 import Counter from "./component/Counter";
+import CounterDown from "./component/CounterDown";
 import "./index.css";
 import Modal from "./component/Modal/Modal";
-
-// import ContactBook from "./component/ContactBook";
+import TodoList from "./component/TodoList";
 
 class App extends Component {
   state = {
     count: 10,
-    modalVisible: false,
-    counterVisible: false,
+    modalIsVisible: false,
+    counterIsVisible: false,
   };
 
   toggleModal = () => {
     this.setState({
-      modalVisible: !this.state.modalVisible,
+      modalIsVisible: !this.state.modalIsVisible,
     });
   };
 
   toggleCounter = () => {
     this.setState({
-      counterVisible: !this.state.counterVisible,
+      counterIsVisible: !this.state.counterIsVisible,
     });
   };
 
   render() {
     return (
       <>
-        {/* <ContactBook /> */}
-        {this.state.modalVisible && <Modal toggleModal={this.toggleModal} />}
-        <button onClick={this.toggleModal}>open modal</button>
-        {this.state.counterVisible && <Counter />}
+        {/* modal okno otkrit zakrit  */}
+        {/* {this.state.modalIsVisible && <Modal toggleModal={this.toggleModal} />}
+        <button onClick={this.toggleModal}>open modal</button>*/}
+
+        {/* knopka otkrivayet valu i zakrivayet */}
+        {/* {this.state.counterIsVisible && <CounterDown />} */}
+        {/* scetcik s 10 ti do 0 */}
+        {this.state.counterIsVisible && <Counter />}
+
         <button onClick={this.toggleCounter}>
-          {this.state.counterVisible ? "open" : "close"}open
+          {this.state.counterIsVisible ? "stop" : "start"}
         </button>
 
-        <Users />
+        <TodoList />
       </>
     );
   }
