@@ -22,12 +22,6 @@ export default class TodoList extends Component {
     });
   };
 
-  componentDidUpdate = (_, prevState) => {
-    if (prevState.page !== this.state.page) {
-      this.getTodos();
-    }
-  };
-
   getTodos = async () => {
     const response = await axios.get(
       "https://jsonplaceholder.typicode.com/todos",
@@ -47,7 +41,11 @@ export default class TodoList extends Component {
   componentDidMount() {
     this.getTodos();
   }
-
+  componentDidUpdate = (_, prevState) => {
+    if (prevState.page !== this.state.page) {
+      this.getTodos();
+    }
+  };
   render() {
     return (
       <div>
