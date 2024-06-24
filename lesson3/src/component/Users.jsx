@@ -14,7 +14,6 @@ class Users extends Component {
       page: this.state.page + 1,
     });
   };
-
   decrementPage = () => {
     if (this.state.page < 2) return;
     this.setState({
@@ -24,37 +23,38 @@ class Users extends Component {
 
   getUsers = async () => {
     this.setState({
-      isloading: true,
+      isLoading: true,
     });
-  };
 
-  componentDidMount = async () => {
     const response = await axios.get(
       "https://jsonplaceholder.typicode.com/users",
       {
         params: {
           _limit: 3,
-          page: this.state.page,
+          _page: this.state.page,
         },
       }
     );
-
+    console.log("response :>> ", response);
     this.setState({
       users: response.data,
       isLoading: false,
     });
   };
 
+  componentDidMount = async () => {
+    this.getUsers();
+  };
+
   componentDidUpdate = (prevProps, prevState) => {
-    console.log("prevstate:", prevState);
     if (prevState.page !== this.state.page) {
-      console.log("request to backend");
+      this.getUsers();
     }
   };
 
   render() {
     if (this.state.isLoading) {
-      return <h1>...loading</h1>;
+      return <h1>...Loading</h1>;
     }
     return (
       <>
@@ -62,14 +62,14 @@ class Users extends Component {
         <ul>
           {this.state.users.map((user) => {
             return (
-              <li>
+              <li key={user.id}>
                 <p>{user.name}</p>
               </li>
             );
-          })}{" "}
-          <button onClick={this.componentDidUpdate}>prevProps</button>
-          <button onClick={this.componentDidUpdate}>prev</button>
+          })}
         </ul>
+        <button onClick={this.decrementPage}>Prev</button>
+        <button onClick={this.incrementPage}>Next</button>
       </>
     );
   }
